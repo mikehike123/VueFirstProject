@@ -3,6 +3,10 @@
     <MyHeader />
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App Lets change this!!!"/>
+    <h1>My Items</h1>
+    <div v-bind:key="listItem.id" v-for="listItem in listArray">
+        <div>Description={{listItem.description}}</div>
+    </div>
     <MyForm />
   </div>
 </template>
@@ -14,6 +18,10 @@ import MyHeader from './components/MyHeader.vue'
 
 export default {
   name: 'app',
+  data: function()  {
+     return {
+       listArray : []
+     }},
   components: {
     HelloWorld,
     MyForm,
