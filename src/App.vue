@@ -1,20 +1,16 @@
 <template>
   <div id="app">
     <MyHeader />
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App Lets change this!!!"/>
+    
     <h1>My Items</h1>
-    <div v-bind:key="listItem.id" v-for="listItem in listArray">
-        <div>Description={{listItem.description}}</div>
-    </div>
-    <MyForm />
+    <ListItems v-bind:listItems="listArray"/>
+   
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import MyForm from './components/MyForm.vue'
 import MyHeader from './components/MyHeader.vue'
+import ListItems from './components/ListItems.vue'
 
 export default {
   name: 'app',
@@ -23,9 +19,9 @@ export default {
        listArray : []
      }},
   components: {
-    HelloWorld,
-    MyForm,
+
     MyHeader,
+    ListItems
   },
   mounted () {
     axios
