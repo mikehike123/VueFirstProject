@@ -29,6 +29,7 @@ export default {
       .get('http://localhost/shoppingList/list/read.php')
       .then(response => {
           this.listArray = response.data['records'];
+          this.listArray[0].completed = parseInt(this.listArray[0].completed, 10);
           //this.listArray[0].completed=false;
           alert(JSON.stringify(this.listArray))
        })
@@ -37,13 +38,13 @@ export default {
     markComplete(listItem)
     {
       const proxyurl = "https://cors-anywhere.herokuapp.com/";
-      const url = "http://localhost/shoppingList/list/completed.php"; // site that doesn’t send Access-Control-*
+      const url = "http://localhost:8080/api/shoppingList/list/completed.php"; // site that doesn’t send Access-Control-*
       
       var isCompleted = listItem.completed?1:0;
-      alert(isCompleted);
+      
       axios.post(url, {
         "id": listItem.id,
-        "completed": 1
+        "completed": isCompleted
       })
       .then(function (response) {
         console.log(response);

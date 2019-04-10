@@ -15,7 +15,7 @@ export default {
     {
         markComplete(event)
         {
-            
+           
             this.listItem.completed = !this.listItem.completed;
             this.$forceUpdate();
             this.$emit("markComplete",this.listItem);
