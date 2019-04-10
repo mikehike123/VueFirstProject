@@ -1,6 +1,5 @@
 <template>
     <div>
-        
         <input type="checkbox" v-bind:checked="this.listItem.completed"  name="chk-completed" id="chk-completed" v-on:change="markComplete">
         <span v-bind:class="{'is-completed':this.listItem.completed}">{{this.listItem.description}}</span>
         <input type="button" value="X" class="round-button" name="delete" id="delete">
@@ -17,7 +16,7 @@ export default {
         {
            
             this.listItem.completed = !this.listItem.completed;
-            this.$forceUpdate();
+            //this.$forceUpdate();
             this.$emit("markComplete",this.listItem);
 
             

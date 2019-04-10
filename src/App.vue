@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <MyHeader />
-    
+    <NewItemForm />
     <h1>My Items</h1>
     <ListItems v-bind:listItems="listArray" v-on:markComplete="markComplete"/>
    
@@ -11,6 +11,7 @@
 <script>
 import MyHeader from './components/MyHeader.vue'
 import ListItems from './components/ListItems.vue'
+import NewItemForm from './components/NewItemForm.vue'
 import { METHODS } from 'http';
 
 export default {
@@ -22,7 +23,8 @@ export default {
   components: {
 
     MyHeader,
-    ListItems
+    ListItems,
+    NewItemForm
   },
   mounted () {
     axios
