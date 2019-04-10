@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-bind:key="listItem.id" v-for="listItem in listItems">
-            <ListItem  v-bind:listItem="listItem" />
+            <ListItem  v-bind:listItem="listItem" v-on:markComplete="$emit('markComplete',listItem)"/>
         </div>
     </div>
 </template>
@@ -9,7 +9,7 @@
 import ListItem from './ListItem.vue'
 export default {
     name:"ListItems",
-    props:['listItems'],
+    props:['listItems', 'listItem'],
     components:
     {
         ListItem
